@@ -3,8 +3,6 @@ from user.models import User    #imports user object from the models.py file
 
 app = Flask(__name__) #app is an instance of Flask
 
-# Routes
-from user import routes 
 
 @app.route("/")
 def home():
@@ -14,7 +12,7 @@ def home():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/user/signup', methods = ['GET'])
+@app.route('/user/signup', methods = ['POST']) 
 def signup():
     return User().signup() #creates a new user class instance
 
