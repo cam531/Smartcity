@@ -1,8 +1,15 @@
 from flask import Flask, render_template
+import pymongo
 from user.models import User    #imports user object from the models.py file
 
 app = Flask(__name__) #app is an instance of Flask
 
+#Database
+client = pymongo.MongoClient('localhost', 27017)
+db = client.user_login_system
+
+
+#Routes
 
 @app.route("/")
 def home():
